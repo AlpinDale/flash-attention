@@ -32,7 +32,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 # ninja build does not work unless include_dirs are abs path
 this_dir = os.path.dirname(os.path.abspath(__file__))
 
-PACKAGE_NAME = "vllm_flash_attn"
+PACKAGE_NAME = "aphrodite_flash_attn"
 
 BASE_WHEEL_URL = (
     "https://github.com/Dao-AILab/flash-attention/releases/download/{tag_name}/{wheel_name}"
@@ -132,7 +132,7 @@ if not SKIP_CUDA_BUILD:
         torch._C._GLIBCXX_USE_CXX11_ABI = True
     ext_modules.append(
         CUDAExtension(
-            name="vllm_flash_attn_2_cuda",
+            name="aphrodite_flash_attn_2_cuda",
             sources=[
                 "csrc/flash_attn/flash_api.cpp",
                 "csrc/flash_attn/src/flash_fwd_hdim32_fp16_sm80.cu",
@@ -281,7 +281,7 @@ class NinjaBuildExtension(BuildExtension):
 
 
 PYTORCH_VERSION = "2.4.0"
-MAIN_CUDA_VERSION = "12.1"
+MAIN_CUDA_VERSION = "12.4"
 
 
 def get_version() -> str:
@@ -294,7 +294,7 @@ def get_version() -> str:
 
 
 setup(
-    name="vllm-flash-attn",
+    name="aphrodite-flash-attn",
     version=get_version(),
     packages=find_packages(
         exclude=(
@@ -308,10 +308,10 @@ setup(
             f"{PACKAGE_NAME}.egg-info",
         )
     ),
-    author="vLLM Team",
-    description="Forward-only flash-attn",
+    author="AlpinDale & vLLM Team & Tri Dao",
+    description="Forward-only flash-attn with CUDA 12.4",
     long_description=f"Forward-only flash-attn package built for PyTorch {PYTORCH_VERSION} and CUDA {MAIN_CUDA_VERSION}",
-    url="https://github.com/vllm-project/flash-attention.git",
+    url="https://github.com/AlpinDale/flash-attention.git",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: BSD License",

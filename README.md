@@ -1,3 +1,5 @@
+Fork of [vllm-project/flash-attention](https://github.com/vllm-project/flash-attention) with wheels for CUDA 12.4
+
 # FlashAttention
 This repository provides the official implementation of FlashAttention and
 FlashAttention-2 from the
