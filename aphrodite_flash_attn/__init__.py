@@ -1,4 +1,4 @@
-__version__ = "2.6.1.post1"
+__version__ = "2.6.1.post2"
 
 from aphrodite_flash_attn.flash_attn_interface import (
     flash_attn_func,
